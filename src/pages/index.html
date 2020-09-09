@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Webpack</title>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
+</head>
+<body>
+  <div class="root">
+    <header class="header">
+      <a href="./index.html" class="header__logo">NewsExplorer</a>
+      <ul class="header__links">
+        <!--<li class="header__list-element header__list-element_active">Главная</li>
+        <li class="header__list-element auth-button">Авторизоваться</li>-->
+        <li class="header__list-element">Сохранённые статьи</li>
+        <li class="header__list-element auth-button auth-button_logged-in">Грета</li>
+      </ul>   
+    </header>
+  </div>
+  <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
+</body>
+</html>

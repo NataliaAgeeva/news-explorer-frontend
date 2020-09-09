@@ -8,19 +8,22 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  entry: { main: './src/index.js' },
+  entry: {
+    main: './src/js/index.js',
+    articles: './src/js/articles/index.js',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js',
+    filename: './js/[name].[chunkhash].js',
   },
   module: {
     rules: [{
-      test: /\.js$/,
+      test: /\.js$/i,
       use: { loader: 'babel-loader' },
       exclude: /node_modules/,
     },
     {
-      test: /\.css$/,
+      test: /\.css$/i,
       use: [
         (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
         'css-loader',
@@ -28,7 +31,7 @@ module.exports = {
       ],
     },
     {
-      test: /\.(png|jpg|gif|ico|svg)$/,
+      test: /\.(png|jpe?g|gif|ico|svg)$/i,
       use: [
         'file-loader?name=./images/[name].[ext]',
         {
@@ -40,26 +43,33 @@ module.exports = {
       ],
     },
     {
-      test: /\.(eot|ttf|woff|woff2)$/,
-      loader: 'file-loader?name=./vendor/[name].[ext]',
+      test: /\.(eot|ttf|woff|woff2)$/i,
+      loader: 'file-loader?name=./vendor/fonts/[name].[ext]',
     },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'style.[contenthash].css',
+      filename: './style/style.[contenthash].css',
     }),
     new HtmlWebpackPlugin({
       inject: false,
-      template: './src/index.html',
+      template: './src/pages/index.html',
       filename: 'index.html',
+      chunks: ['main'],
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      template: './src/pages/articles.html',
+      filename: 'articles.html',
+      chunks: ['articles'],
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
     }),
     new OptimizeCssAssetsPlugin({
-      assetNameRegExp: /\.css$/g,
+      assetNameRegExp: /\.css$/i,
       // eslint-disable-next-line global-require
       cssProcessor: require('cssnano'),
       cssProcessorPluginOptions: {

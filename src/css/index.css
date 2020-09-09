@@ -1,0 +1,7 @@
+@import url('../vendor/fonts.css');
+@import url('../blocks/header/header.css');
+@import url('../blocks/auth-button/auth-button.css');
+
+body {
+    background-color: gray;
+}
