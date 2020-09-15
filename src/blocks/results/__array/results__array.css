@@ -1,0 +1,10 @@
+.results__array {
+    margin-top: 62px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    column-gap: 16px;
+    row-gap: 16px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}

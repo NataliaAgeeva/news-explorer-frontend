@@ -1,0 +1,10 @@
+@import url('./__header/results__header.css');
+@import url('./__array/results__array.css');
+@import url('./__button/results__button.css');
+
+.results {
+    margin: 0 auto;
+    margin-top: 85px;
+    max-width: 85.56%;
+    text-align: center;
+}

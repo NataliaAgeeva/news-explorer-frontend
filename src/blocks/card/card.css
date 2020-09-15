@@ -1,0 +1,20 @@
+@import url('./__image/card__image.css');
+@import url('./__date/card__date.css');
+@import url('./__header/card__header.css');
+@import url('./__paragraph/card__paragraph.css');
+@import url('./__source/card__source.css');
+@import url('./__text-data/card__text-data.css');
+@import url('./__save-flag/card__save-flag.css');
+
+.card {
+    position: relative;
+    height: 576px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0px 10px 58px -5px rgba(8,29,45,0.1);
+}

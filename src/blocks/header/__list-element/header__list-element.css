@@ -1,14 +1,9 @@
-@import url('./_active/header__list-element_active.css');
+@import url('./_logged-in/header__list-element_logged-in.css');
 
 .header__list-element {
+    position: relative;
     display: inline;
-    margin-right: 29px;
-    font-family: 'Roboto';
-    font-weight: normal;
-    color: #ffffff;
-    font-size: 18px;
-    line-height: 24px;
-    align-items: center;
+    margin-right: 31px;
 }
 
 .header__list-element:last-child {

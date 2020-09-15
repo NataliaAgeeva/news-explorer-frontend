@@ -1,0 +1,15 @@
+.header__list-element.header__list-element_logged-in {
+    padding-right: 0;
+}
+
+.header__list-element.header__list-element_logged-in::after {
+    content: '';
+    display: block;
+    background-image: url('../../../../images/logout-white.png');
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(-120%);
+}

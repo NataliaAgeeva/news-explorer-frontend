@@ -1,0 +1,11 @@
+.search__form {
+  border: 1px solid #D1D2D6;
+  padding: 15px 5px 15px 5px;
+  position: relative;
+  width: 598px;
+  height: 64px;
+  margin: 47px 0 26px 0;
+  height: 32px;
+  background-color: #ffffff;
+  border-radius: 100px;
+}

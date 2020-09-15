@@ -1,0 +1,20 @@
+@import url('./_marked/card__save-flag_marked.css');
+
+.card__save-flag {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffffff;
+    top: 24px;
+    right: 24px;
+    background-image: url('../../../images/bookmark-normal.png');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card__save-flag:hover {
+    cursor: pointer;
+    background-image: url('../../../images/bookmark-hover.png');
+}

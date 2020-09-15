@@ -1,0 +1,19 @@
+.results__button {
+    margin: 0 auto;
+    margin-top: 62px;
+    margin-bottom: 82px;
+    padding: 18px 84px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #1A1B22;
+    border-radius: 80px;
+    background-color: #ffffff;
+}
+
+.results__button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}

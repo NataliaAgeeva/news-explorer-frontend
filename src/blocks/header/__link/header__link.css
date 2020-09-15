@@ -1,0 +1,12 @@
+@import url('./_active/header__link_active.css');
+@import url('./_disabled/header__link_disabled.css');
+@import url('./_enabled/header__link_enabled.css');
+
+.header__link {
+    text-decoration: none;
+    font-family: 'Roboto';
+    font-weight: normal;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 24px;
+}

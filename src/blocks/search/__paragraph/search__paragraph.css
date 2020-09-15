@@ -1,0 +1,11 @@
+.search__paragraph {
+    max-width: 545px;
+    margin-right: 63px;
+    margin-top: -8px;
+    font-family: 'Roboto';
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #ffffff;
+}
