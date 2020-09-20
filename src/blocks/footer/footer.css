@@ -1,0 +1,12 @@
+@import url('./__copyright/footer__copyright.css');
+@import url('./__elements/footer__elements.css');
+@import url('./__links-container/footer__links-container.css');
+@import url('./__menu-item/footer__menu-item.css');
+@import url('./__menu/footer__menu.css');
+@import url('./__social-item/footer__social-item.css');
+@import url('./__social/footer__social.css');
+@import url('./__link/footer__link.css');
+
+.footer {
+    height: 66px;
+}

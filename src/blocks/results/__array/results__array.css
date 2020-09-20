@@ -1,5 +1,7 @@
 .results__array {
-    margin-top: 62px;
+    max-width: 85.56%;
+    margin: 0 auto;
+    margin-top: 64px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 400px);
     column-gap: 16px;

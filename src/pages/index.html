@@ -13,8 +13,8 @@
       <ul class="header__links">
         <li class="header__list-element"><a href="#" class="header__link header__link_active">Главная</a></li>
         <!--<li class="header__list-element"><input type="button" class="auth-button" value="Авторизоваться"></li>-->
-        <li class="header__list-element"><a href="#" class="header__link header__link_enabled">Сохранённые статьи</a></li>
-        <li class="header__list-element header__list-element_logged-in"><input type="button" class="auth-button auth-button_logged-in" value="Грета"></li>
+        <li class="header__list-element"><a href="./articles.html" class="header__link header__link_enabled">Сохранённые статьи</a></li>
+        <li class="header__list-element"><button class="auth-button auth-button_logged-in">Грета</button></li>
       </ul>   
     </header>
 
@@ -22,13 +22,14 @@
       <h1 class="search__header">Что в мире творится?</h1>
       <p class="search__paragraph">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
       <form class="search__form">
-        <input type="text" class="search__bar" placeholder="Природа">
+        <input type="text" class="search__bar" placeholder="Введите тему новости" required>
         <input type="submit" class="search__button" value="Искать">
       </form>
     </section>
 
     <section class="results">
       <h2 class="results__header">Результаты поиска</h2>
+
       <article class="results__array">
         <div class="card">
           <button class="card__save-flag"></button>
@@ -75,6 +76,35 @@
       </article>
       <button class="results__button">Показать еще</button>
     </section>
+
+    <section class="about">
+      <img class="about__avatar" src="<%=require('../images/image-03.png').default%>">
+      <div class="about__text">
+        <h2 class="about__header">Об авторе</h2>
+        <p class="about__paragraph">
+          Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
+        </p>
+        <p class="about__paragraph">
+          Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__elements">
+        <span class="footer__copyright">© 2020 Supersite, Powered by News API</span>
+        <div class="footer__links-container">
+          <ul class="footer__menu">
+            <li class="footer__menu-item"><a href="#" class="footer__link">Главная</a></li>
+            <li class="footer__menu-item"><a href="#" class="footer__link">Яндекс.Практикум</a></li>
+          </ul>
+          <ul class="footer__social">
+            <li class="footer__social-item"><a href="#" class="footer__link"><img src="<%=require('../images/Vector.svg').default%>"></a></li>
+            <li class="footer__social-item"><a href="#" class="footer__link"><img src="<%=require('../images/iconmonstr-facebook-6.svg').default%>"></a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   </div>
   <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>

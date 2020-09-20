@@ -1,0 +1,9 @@
+@import url('./__header/about__header.css');
+@import url('./__avatar/about__avatar.css');
+@import url('./__text/about__text.css');
+@import url('./__paragraph/about__paragraph.css');
+
+.about {
+    background-color: #ffffff;
+    display: flex;
+}

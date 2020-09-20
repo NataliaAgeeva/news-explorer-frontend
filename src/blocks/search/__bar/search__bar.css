@@ -2,16 +2,24 @@
   border: none;
   margin: 0;
   margin-left: 19px;
-  outline: none;
+  outline: 1px;
   -webkit-appearance: none;
   height: 30px;
   vertical-align: top;
   background-color: #ffffff;
-  color: #000000;
+  color: #B6BCBF;
   font-family: 'Roboto';
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
   padding: 0 8px 0 0;
   width: 75%;
+}
+
+.search__bar:focus {
+  color: #1A1B22;
+}
+
+.search__bar:enabled {
+  color: #1A1B22;
 }

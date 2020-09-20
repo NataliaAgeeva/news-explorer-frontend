@@ -1,0 +1,12 @@
+.footer__menu-item {
+    display: inline;
+    margin-right: 34px;
+}
+
+.footer__menu-item:last-child {
+    margin-right: 0;
+}
+
+.footer__menu-item:visited {
+    color: #1A1B22;
+}
