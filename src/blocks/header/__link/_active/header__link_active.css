@@ -1,4 +1,6 @@
+@import url('./_white/header__link_active_white.css');
+@import url('./_black/header__link_active_black.css');
+
 .header__link.header__link_active {
     padding-bottom: 23px;
-    border-bottom: 3px solid #ffffff;
 }

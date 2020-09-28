@@ -1,6 +1,8 @@
 .results__header {
+    max-width: 500px;
     text-align: left;
     margin-left: 102px;
+    margin-bottom: 64px;
     font-family: 'Roboto Slab';
     font-weight: normal;
     font-size: 40px;

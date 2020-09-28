@@ -1,14 +1,14 @@
+@import url('./_white/auth-button_white.css');
+@import url('./_black/auth-button_black.css');
 @import url('./_logged-in/auth-button_logged-in.css');
 
 .auth-button {
+    background-color: transparent;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 24px; 
-    color: #ffffff;
-    background-color: transparent;
-    border: 1px solid #ffffff;
     padding: 13px 17px 13px 17px;
     border-radius: 30px;
     position: relative;

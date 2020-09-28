@@ -1,9 +1,11 @@
+@import url('./_white/header__logo_white.css');
+@import url('./_black/header__logo_black.css');
+
 .header__logo {
     margin-top: 5px;
     margin-left: 106px;
     font-family: 'Roboto Slab';
     font-weight: bold;
-    color: #FFFFFF;
     font-size: 20px;
     line-height: 24px;
     text-decoration: none;

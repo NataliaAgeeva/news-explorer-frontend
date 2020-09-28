@@ -1,0 +1,16 @@
+.auth-button.auth-button_logged-in_white {
+    padding-right: 45px;
+}
+
+.auth-button.auth-button_logged-in_white::after {
+    content: '';
+    display: block;
+    background-image: url('../../../../images/logout-white.png');
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(102%) translateX(-104%);
+    cursor: pointer;
+}

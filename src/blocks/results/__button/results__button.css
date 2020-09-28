@@ -1,7 +1,8 @@
 .results__button {
+    display: block;
     margin: 0 auto;
     margin-top: 62px;
-    margin-bottom: 82px;
+    margin-bottom: 18px;
     padding: 18px 84px;
     font-family: 'Roboto';
     font-style: normal;

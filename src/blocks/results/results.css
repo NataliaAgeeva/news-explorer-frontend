@@ -1,11 +1,14 @@
+@import url('./_white/results_white.css');
+@import url('./__preheader/results__preheader.css');
+@import url('./__keywords/results__keywords.css');
 @import url('./__header/results__header.css');
 @import url('./__array/results__array.css');
 @import url('./__button/results__button.css');
 
 .results {
-    margin: 0 auto;
-    padding-top: 48px;
+    padding-top: 46px;
     max-width: 1440px;
-    text-align: center;
+    text-align: left;
+    padding-bottom: 62px;
     background-color: #F5F6F7;
 }
