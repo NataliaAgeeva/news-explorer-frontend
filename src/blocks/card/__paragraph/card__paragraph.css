@@ -6,4 +6,8 @@
     line-height: 23px;
     color: #1A1B22;
     margin-top: -10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
 }

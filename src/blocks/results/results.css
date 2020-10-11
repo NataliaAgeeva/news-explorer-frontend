@@ -12,3 +12,11 @@
     padding-bottom: 62px;
     background-color: #F5F6F7;
 }
+
+@media screen and (max-width: 1023px) {
+    .results {
+      max-width: 1023px;
+      padding-top: 20px;
+      padding-bottom: 40px;
+    }
+  }

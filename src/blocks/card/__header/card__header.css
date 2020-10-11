@@ -7,3 +7,14 @@
     color: #1A1B22;
     margin-top: 13px;
 }
+
+@media screen and (max-width: 1023px) {
+    .card__header {
+        font-size: 22px;
+        line-height: 24px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+  }

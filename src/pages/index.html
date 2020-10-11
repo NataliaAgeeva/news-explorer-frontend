@@ -3,18 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <title>News Explorer</title>
+  <link rel="shortcut icon" href="<%=require('../images/favicon.png').default%>" type="image/x-icon">
   <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
 </head>
 <body>
   <div class="root">
+<!--Для вызова формы авторизации и навигации между страницами, 
+  оставила блоки авторизоваться и сохраненные статьи, блок на выход из аккаунта закомментирован. 
+  Формы работают по клику-->
+    <div class="popup" id="authPopup">
+      <div class="popup__content">
+          <img src="<%=require('../images/close.svg').default%>" alt="" class="popup__close" id="authClose">
+          <h3 class="popup__title">Вход</h3>
+          <form class="popup__form" name="authorisation" id="authForm" novalidate>
+              <label class="popup__label">Email</label>
+              <input type="email" name="email" id="email" class="popup__input" placeholder="Введите почту" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" required>
+              <span id="errorAuthEmail" name="error-email" class="popup__input-required"></span>
+              
+              <label class="popup__label">Пароль</label>
+              <input type="password" name="password" id="password" class="popup__input" minlength="6" maxlength="12" placeholder="Введите пароль" required>
+              <span id="errorAuthPassword" name="error-password" class="popup__input-required"></span>
+              
+              <button type="submit" id="authSubmit" name="authSubmit" class="button popup__button">Войти</button>
+              
+              <p class="popup__register-container">или<input type="button" id="regOpen" class="popup__register" value="Зарегистрироваться"></p>
+          </form>
+      </div>
+    </div>
+
+    <div class="popup" id="registerPopup">
+      <div class="popup__content">
+          <img src="<%=require('../images/close.svg').default%>" alt="" class="popup__close" id="regClose">
+          <h3 class="popup__title">Регистрация</h3>
+          <form class="popup__form" name="registration" id="regForm" novalidate>
+              <label class="popup__label">Email</label>
+              <input type="email" name="email" id="email-reg" class="popup__input" placeholder="Введите почту" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" required>
+              <span id="errorRegEmail" name="error-email" class="popup__input-required"></span>
+              
+              <label class="popup__label">Пароль</label>
+              <input type="password" name="password" id="password-reg" class="popup__input" minlength="6" maxlength="12" placeholder="Введите пароль" required>
+              <span id="errorRegPassword" name="error-password" class="popup__input-required"></span>
+              
+              <label class="popup__label">Имя</label>
+              <input type="text" name="text" id="text-reg" class="popup__input" minlength="2" maxlength="12" placeholder="Введите свое имя" required>
+              <span id="errorRegName" name="error-text" class="popup__input-required"></span>
+              
+              <button type="submit" id="regSubmit" name="regSubmit" class="button popup__button">Зарегистрироваться</button>
+              
+              <p class="popup__register-container">или<input type="button" class="popup__register" id="authRegOpen" value="Войти"></p>
+          </form>
+      </div>
+    </div>
+<!--Добавить попапу класс "popup_is-opened" для отображения-->
+    <div class="popup" id="successPopup">
+      <div class="popup__content">
+          <img src="<%=require('../images/close.svg').default%>" alt="" class="popup__close" id="successClose">
+          <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+          <form class="popup__form" name="success" id="successForm" novalidate>
+              <input type="button" id="authSuccessOpen" class="popup__register popup__register_font-size" value="Выполнить вход">
+          </form>
+      </div>
+    </div>
 
     <header class="header header_white">
       <a href="./index.html" class="header__logo header__logo_white">NewsExplorer</a>
       <ul class="header__links">
         <li class="header__list-element"><a href="./index.html" class="header__link header__link_white header__link_active header__link_active_white">Главная</a></li>
-        <!--<li class="header__list-element"><input type="button" class="auth-button auth-button_white" value="Авторизоваться"></li>-->
+        <li class="header__list-element"><input type="button" class="auth-button auth-button_white" id="authOpen" value="Авторизоваться"></li>
         <li class="header__list-element"><a href="./articles.html" class="header__link header__link_white header__link_enabled">Сохранённые статьи</a></li>
-        <li class="header__list-element"><button class="auth-button auth-button_white auth-button_logged-in_white">Грета</button></li>
+        <!--<li class="header__list-element"><button class="auth-button auth-button_white auth-button_logged-in_white">Грета</button></li>-->
       </ul>   
     </header>
 
@@ -23,10 +80,10 @@
       <p class="search__paragraph">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
       <form class="search__form">
         <input type="text" class="search__bar" placeholder="Введите тему новости" required>
-        <input type="submit" class="search__button" value="Искать">
+        <input type="submit" class="button search__button" value="Искать">
       </form>
     </section>
-
+<!--Блоки "Прелоудер" и "Не найдено"-->
     <!--
     <section class="preloader">
       <i class="preloader__circle"></i>
@@ -87,7 +144,7 @@
         </div>
 
       </article>
-      <button class="results__button">Показать еще</button>
+      <button class="button results__button">Показать еще</button>
     </section>
 
     <section class="about">

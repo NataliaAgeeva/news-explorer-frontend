@@ -1,7 +1,6 @@
 .results__array {
     max-width: 85.56%;
     margin: 0 auto;
-    margin-top: 17px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 400px);
     column-gap: 16px;
@@ -10,3 +9,13 @@
     justify-items: center;
     align-items: center;
 }
+
+@media screen and (max-width: 1023px) {
+    .results__array {
+        max-width: 91.62%;
+        margin-left: 40px;
+        grid-template-columns: repeat(auto-fill, 224px);
+        column-gap: 8px;
+        row-gap: 8px;
+    }
+  }

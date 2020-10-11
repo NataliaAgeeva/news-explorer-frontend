@@ -14,3 +14,9 @@
     transform: translateY(102%) translateX(-104%);
     cursor: pointer;
 }
+
+@media screen and (max-width: 1023px) {
+    .auth-button.auth-button_logged-in_black::after {
+        transform: translateY(65%) translateX(-100%);
+    }
+  }

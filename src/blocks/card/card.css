@@ -6,6 +6,8 @@
 @import url('./__source/card__source.css');
 @import url('./__text-data/card__text-data.css');
 @import url('./__save-flag/card__save-flag.css');
+@import url('./__delete-card/card__delete-card.css');
+@import url('./__keyword/card__keyword.css');
 
 .card {
     position: relative;
@@ -20,3 +22,9 @@
     box-shadow: 0px 10px 58px -5px rgba(8,29,45,0.1);
     transition: box-shadow 0.3s ease-out;
 }
+
+@media screen and (max-width: 1023px) {
+    .card {
+        height: 420px;
+    }
+  }

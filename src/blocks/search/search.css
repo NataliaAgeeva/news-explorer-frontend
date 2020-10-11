@@ -5,7 +5,7 @@
 @import url('./__button/search__button.css');
 
 .search {
-    background-image: url('../../images/search-image.png');
+    background-image: url('../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.jpg');
     background-size: cover;
     margin-top: -80px;
     max-width: 1440px;
@@ -14,4 +14,12 @@
     flex-direction: column;
     align-items: center;
     z-index: -1;
+}
+
+@media screen and (max-width: 1023px) {
+    .search {
+        max-width: 1023px;
+        margin-top: -66px;
+        z-index: -1;
+    }
 }

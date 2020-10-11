@@ -8,3 +8,12 @@
     line-height: 64px;
     color: #ffffff;
 }
+
+@media screen and (max-width: 1023px) {
+    .search__header {
+        font-size: 36px;
+        line-height: 40px;
+        margin-top: 104px;
+        margin-left: 164px;
+    }
+}

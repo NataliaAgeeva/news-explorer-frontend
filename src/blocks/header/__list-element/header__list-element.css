@@ -7,3 +7,12 @@
 .header__list-element:last-child {
     margin-right: 104px;
 }
+
+@media screen and (max-width: 1023px) {
+    .header__list-element {
+        margin-right: 15px;
+    }
+    .header__list-element:last-child {
+        margin-right: 25px;
+    }
+}

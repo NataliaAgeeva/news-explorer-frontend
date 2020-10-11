@@ -1,0 +1,12 @@
+@import url('./_font-size/popup_register_font-size.css');
+
+.popup__register {
+    color: #2F71E5;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.popup__register:hover {
+    cursor: pointer;
+}

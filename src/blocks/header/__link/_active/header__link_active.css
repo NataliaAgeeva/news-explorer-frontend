@@ -4,3 +4,9 @@
 .header__link.header__link_active {
     padding-bottom: 23px;
 }
+
+@media screen and (max-width: 1023px) {
+    .header__link.header__link_active {
+        padding-bottom: 20px;
+    }
+}

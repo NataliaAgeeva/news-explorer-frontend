@@ -10,3 +10,9 @@
 .footer {
     height: 66px;
 }
+
+@media screen and (max-width: 1023px) {
+    .footer {
+        height: 64px;
+    }
+  }

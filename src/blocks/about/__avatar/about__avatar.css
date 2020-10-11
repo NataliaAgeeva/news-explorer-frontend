@@ -1,5 +1,16 @@
 .about__avatar {
+    width: 32.2%;
+    height: auto;
     margin-top: 80px;
     margin-left: 105px;
     margin-bottom: 86px;;
 }
+
+@media screen and (max-width: 1023px) {
+    .about__avatar {
+      width: 31%;
+      margin-top: 65px;
+      margin-left: 40px;
+      margin-bottom: 36px;
+    }
+  }
