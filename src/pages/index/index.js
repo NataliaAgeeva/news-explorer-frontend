@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import '../css/index.css';
+import './index.css';
 import {
   authButtonOpen,
   authPopupClose,
@@ -12,9 +12,9 @@ import {
   regSubmit,
   errorsReg,
   authRegOpen,
-} from './constants/constants';
-import Popup from './components/popup';
-import FormValidator from './components/validation';
+} from '../../js/constants/constants';
+import Popup from '../../js/components/popup';
+import FormValidator from '../../js/components/validation';
 
 const authPopup = new Popup(document.querySelector('#authPopup'));
 const regPopup = new Popup(document.querySelector('#registerPopup'));
