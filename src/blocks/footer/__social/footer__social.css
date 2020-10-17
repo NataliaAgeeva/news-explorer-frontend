@@ -8,3 +8,9 @@
         padding-left: 0;
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .footer__social {
+        padding-right: 0;
+    }
+  }

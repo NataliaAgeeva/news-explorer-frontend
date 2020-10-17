@@ -22,7 +22,7 @@ export default class FormValidator {
     const MAX_LENGTH_PASSWORD = 12;
     const NO_SYMBOLS = '';
 
-    const errorElement = this.form.querySelector(`span[name="error-${inputElement.type}"]`);
+    const errorElement = this.form.querySelector(`span[id="error-${inputElement.id}"]`);
 
     if (inputElement.value === NO_SYMBOLS) {
       errorElement.textContent = 'Поле обязательно для заполнения';

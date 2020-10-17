@@ -12,10 +12,21 @@
 
 @media screen and (max-width: 1023px) {
     .results__array {
+        margin-top: 5px;
         max-width: 91.62%;
-        margin-left: 40px;
         grid-template-columns: repeat(auto-fill, 224px);
         column-gap: 8px;
         row-gap: 8px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .results__array {
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, 288px);
+        column-gap: 16px;
+        row-gap: 10px;
+        margin: 0 auto;
+        margin-top: 7px;
     }
   }

@@ -14,3 +14,17 @@
       margin-bottom: 36px;
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .about__avatar {
+      width: 232px;
+      margin: 0 auto;
+      margin-top: 33px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .about__avatar {
+      width: 272px;
+    }
+  }

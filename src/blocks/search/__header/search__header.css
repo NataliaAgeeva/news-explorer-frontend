@@ -1,12 +1,12 @@
 .search__header {
     max-width: 350px;
-    margin-right: 257px;
     margin-top: 11.1%;
-    font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab', 'Georgia', serif;
     font-weight: normal;
     font-size: 60px;
     line-height: 64px;
     color: #ffffff;
+    margin-left: -270px;
 }
 
 @media screen and (max-width: 1023px) {
@@ -14,6 +14,22 @@
         font-size: 36px;
         line-height: 40px;
         margin-top: 104px;
-        margin-left: 164px;
+        margin-left: -80px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .search__header {
+        margin-left: 90px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .search__header {
+        max-width: 285px;
+        font-size: 36px;
+        line-height: 40px;
+        margin-top: 97px;
+        margin-left: 20px;
     }
 }

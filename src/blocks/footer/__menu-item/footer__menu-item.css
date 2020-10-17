@@ -16,3 +16,10 @@
         margin-right: 15px;
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .footer__menu-item {
+        display: block;
+        margin-bottom: 20px;
+    }
+  }

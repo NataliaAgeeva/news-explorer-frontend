@@ -4,7 +4,7 @@
 .header__logo {
     margin-top: 5px;
     margin-left: 106px;
-    font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab', 'Georgia', serif;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
@@ -16,5 +16,13 @@
         font-size: 20px;
         line-height: 24px;
         margin-left: 42px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header__logo {
+        font-size: 16px;
+        line-height: 24px;
+        margin-left: 16px;
     }
 }

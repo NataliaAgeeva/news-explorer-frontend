@@ -31,3 +31,20 @@
         transform: translateX(15px);
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .results__button {
+        transform: none;
+        margin-top: 24px;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    .results__button {
+        width: 90%;
+        transform: none;
+        margin-top: 24px;
+        margin-bottom: 0px;
+        padding: 14px 60px;
+    }
+  }

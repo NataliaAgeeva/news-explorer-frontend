@@ -22,3 +22,10 @@
         z-index: 1;
     }
 }
+
+@media screen and (max-width: 767px) {
+    .header {
+        height: 56px;
+        z-index: 1;
+    }
+}

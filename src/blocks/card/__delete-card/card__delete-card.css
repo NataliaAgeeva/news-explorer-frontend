@@ -22,7 +22,7 @@
 .card__delete-card:hover::after {
     content: 'Убрать из сохранённых';
     display: block;
-    font-family: Roboto;
+    font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -52,3 +52,10 @@
         display: none;
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .card__delete-card {
+        top: 15px;
+        right: 15px;
+    }
+}

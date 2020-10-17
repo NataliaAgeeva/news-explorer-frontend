@@ -9,7 +9,14 @@
 
 @media screen and (max-width: 1023px) {
     .footer__elements {
-        margin-top: 27px;
+        margin-top: 0px;
         max-width: 92.78%;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .footer__elements {
+        flex-direction: column-reverse;
+        max-width: 100%;
     }
   }

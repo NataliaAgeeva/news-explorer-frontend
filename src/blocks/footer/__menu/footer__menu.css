@@ -8,3 +8,9 @@
         margin-right: 22px;
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .footer__menu {
+        padding: 0;
+    }
+  }

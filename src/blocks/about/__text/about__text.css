@@ -4,6 +4,14 @@
     margin-right: 80px;
 }
 
+@media screen and (max-width: 1360px) {
+  .about__text {
+      max-width: 512px;
+      margin-left: 30px;
+      margin-right: 50px;
+  }
+}
+
 @media screen and (max-width: 1023px) {
     .about__text {
         max-width: 424px;
@@ -12,10 +20,11 @@
     }
   }
 
-  @media screen and (max-width: 1360px) {
+  @media screen and (max-width: 767px) {
     .about__text {
-        max-width: 512px;
-        margin-left: 42px;
-        margin-right: 50px;
+        max-width: 550px;
+        margin-left: 18px;
+        margin-right: 18px;
     }
   }
+

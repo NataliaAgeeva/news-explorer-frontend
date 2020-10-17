@@ -13,16 +13,16 @@
   Формы работают по клику-->
     <div class="popup" id="authPopup">
       <div class="popup__content">
-          <img src="<%=require('../images/close.svg').default%>" alt="" class="popup__close" id="authClose">
+          <img src="<%=require('../images/close.svg').default%>" alt="close_button" class="popup__close" id="authClose">
           <h3 class="popup__title">Вход</h3>
           <form class="popup__form" name="authorisation" id="authForm" novalidate>
               <label class="popup__label">Email</label>
               <input type="email" name="email" id="email" class="popup__input" placeholder="Введите почту" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" required>
-              <span id="errorAuthEmail" name="error-email" class="popup__input-required"></span>
+              <span id="error-email" class="popup__input-required"></span>
               
               <label class="popup__label">Пароль</label>
               <input type="password" name="password" id="password" class="popup__input" minlength="6" maxlength="12" placeholder="Введите пароль" required>
-              <span id="errorAuthPassword" name="error-password" class="popup__input-required"></span>
+              <span id="error-password" class="popup__input-required"></span>
               
               <button type="submit" id="authSubmit" name="authSubmit" class="button popup__button">Войти</button>
               
@@ -33,20 +33,20 @@
 
     <div class="popup" id="registerPopup">
       <div class="popup__content">
-          <img src="<%=require('../images/close.svg').default%>" alt="" class="popup__close" id="regClose">
+          <img src="<%=require('../images/close.svg').default%>" alt="close_button" class="popup__close" id="regClose">
           <h3 class="popup__title">Регистрация</h3>
           <form class="popup__form" name="registration" id="regForm" novalidate>
               <label class="popup__label">Email</label>
               <input type="email" name="email" id="email-reg" class="popup__input" placeholder="Введите почту" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" required>
-              <span id="errorRegEmail" name="error-email" class="popup__input-required"></span>
+              <span id="error-email-reg" class="popup__input-required"></span>
               
               <label class="popup__label">Пароль</label>
               <input type="password" name="password" id="password-reg" class="popup__input" minlength="6" maxlength="12" placeholder="Введите пароль" required>
-              <span id="errorRegPassword" name="error-password" class="popup__input-required"></span>
+              <span id="error-password-reg" class="popup__input-required"></span>
               
               <label class="popup__label">Имя</label>
               <input type="text" name="text" id="text-reg" class="popup__input" minlength="2" maxlength="12" placeholder="Введите свое имя" required>
-              <span id="errorRegName" name="error-text" class="popup__input-required"></span>
+              <span id="error-text-reg" class="popup__input-required"></span>
               
               <button type="submit" id="regSubmit" name="regSubmit" class="button popup__button">Зарегистрироваться</button>
               
@@ -57,7 +57,7 @@
 <!--Добавить попапу класс "popup_is-opened" для отображения-->
     <div class="popup" id="successPopup">
       <div class="popup__content">
-          <img src="<%=require('../images/close.svg').default%>" alt="" class="popup__close" id="successClose">
+          <img src="<%=require('../images/close.svg').default%>" alt="close_button" class="popup__close" id="successClose">
           <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
           <form class="popup__form" name="success" id="successForm" novalidate>
               <input type="button" id="authSuccessOpen" class="popup__register popup__register_font-size" value="Выполнить вход">
@@ -91,7 +91,7 @@
     </section>
 
     <section class="not-found">
-      <img src="<%=require('../images/not-found_v1.png').default%>" class="not-found__image">
+      <img src="<%=require('../images/not-found_v1.png').default%>" alt="close_button" class="not-found__image">
       <h3 class="not-found__header">Ничего не найдено</h3>
       <p class="not-found__paragraph">К сожалению по вашему запросу ничего не найдено</p>
     </section>
@@ -104,7 +104,7 @@
         <div class="card">
           <button class="card__save-flag"></button>
           <a href="https://lenta.ru/" class="card__link" target="_blank">
-          <img class="card__image" src="<%=require('../images/image_08.png').default%>">
+          <img class="card__image" src="<%=require('../images/image_08.png').default%>" alt="card_picture">
           <div class="card__text-data">
             <span class="card__date">2 августа, 2019</span>
             <h3 class="card__header">Национальное достояние &ndash; парки</h3>
@@ -118,7 +118,7 @@
         <div class="card">
           <button class="card__save-flag card__save-flag_marked"></button>
           <a href="https://meduza.io/" class="card__link" target="_blank">
-          <img class="card__image" src="<%=require('../images/image_04.png').default%>">
+          <img class="card__image" src="<%=require('../images/image_04.png').default%>" alt="card_picture">
           <div class="card__text-data">
             <span class="card__date">2 августа, 2019</span>
             <h3 class="card__header">Лесные огоньки: история одной фотографии</h3>
@@ -132,7 +132,7 @@
         <div class="card">
           <button class="card__save-flag"></button>
           <a href="https://ria.ru/" class="card__link" target="_blank">
-          <img class="card__image" src="<%=require('../images/image_07.png').default%>">
+          <img class="card__image" src="<%=require('../images/image_07.png').default%>" alt="card_picture">
           <div class="card__text-data">
             <span class="card__date">2 августа, 2019</span>
             <h3 class="card__header">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
@@ -148,7 +148,7 @@
     </section>
 
     <section class="about">
-      <img class="about__avatar" src="<%=require('../images/image-03.png').default%>">
+      <img class="about__avatar" src="<%=require('../images/image-03.png').default%>" alt="avatar">
       <div class="about__text">
         <h2 class="about__header">Об авторе</h2>
         <p class="about__paragraph">
@@ -169,8 +169,8 @@
             <li class="footer__menu-item"><a href="https://praktikum.yandex.ru/" class="footer__link" target="_blank">Яндекс.Практикум</a></li>
           </ul>
           <ul class="footer__social">
-            <li class="footer__social-item"><a href="https://twitter.com/" class="footer__link" target="_blank"><img src="<%=require('../images/Vector.svg').default%>"></a></li>
-            <li class="footer__social-item"><a href="https://facebook.com/" class="footer__link" target="_blank"><img src="<%=require('../images/iconmonstr-facebook-6.svg').default%>"></a></li>
+            <li class="footer__social-item"><a href="https://twitter.com/" class="footer__link" target="_blank"><img src="<%=require('../images/Vector.svg').default%>" alt="twitter"></a></li>
+            <li class="footer__social-item"><a href="https://facebook.com/" class="footer__link" target="_blank"><img src="<%=require('../images/iconmonstr-facebook-6.svg').default%>" alt="facebook"></a></li>
           </ul>
         </div>
       </div>

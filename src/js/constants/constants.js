@@ -3,17 +3,17 @@ const authPopupClose = document.querySelector('#authClose');
 const authForm = document.querySelector('#authForm');
 const authSubmit = document.querySelector('#authSubmit');
 const errorsAuth = {
-  email: authForm.querySelector('#errorAuthEmail'),
-  password: authForm.querySelector('#errorAuthPassword'),
+  email: authForm.querySelector('#error-email'),
+  password: authForm.querySelector('#error-password'),
 };
 const regButtonOpen = document.querySelector('#regOpen');
 const regPopupClose = document.querySelector('#regClose');
 const regForm = document.querySelector('#regForm');
 const regSubmit = document.querySelector('#regSubmit');
 const errorsReg = {
-  email: regForm.querySelector('#errorRegEmail'),
-  password: regForm.querySelector('#errorRegPassword'),
-  name: regForm.querySelector('#errorRegName'),
+  email: regForm.querySelector('#error-email-reg'),
+  password: regForm.querySelector('#error-password-reg'),
+  name: regForm.querySelector('#error-text-reg'),
 };
 const authRegOpen = regForm.querySelector('#authRegOpen');
 
