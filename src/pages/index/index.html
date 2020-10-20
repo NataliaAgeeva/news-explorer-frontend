@@ -8,9 +8,7 @@
 </head>
 <body>
   <div class="root">
-<!--Для вызова формы авторизации и навигации между страницами, 
-  оставила блоки авторизоваться и сохраненные статьи, блок на выход из аккаунта закомментирован. 
-  Формы работают по клику-->
+
     <div class="popup" id="authPopup">
       <div class="popup__content">
           <img src="<%=require('../../images/close.svg').default%>" alt="close_button" class="popup__close" id="authClose">
@@ -21,7 +19,7 @@
               <span id="error-email" class="popup__input-required"></span>
               
               <label class="popup__label">Пароль</label>
-              <input type="password" name="password" id="password" class="popup__input" minlength="6" maxlength="12" placeholder="Введите пароль" required>
+              <input type="password" name="password" id="password" class="popup__input" minlength="8" maxlength="12" placeholder="Введите пароль" required>
               <span id="error-password" class="popup__input-required"></span>
               
               <button type="submit" id="authSubmit" name="authSubmit" class="button popup__button">Войти</button>
@@ -41,11 +39,11 @@
               <span id="error-email-reg" class="popup__input-required"></span>
               
               <label class="popup__label">Пароль</label>
-              <input type="password" name="password" id="password-reg" class="popup__input" minlength="6" maxlength="12" placeholder="Введите пароль" required>
+              <input type="password" name="password" id="password-reg" class="popup__input" minlength="8" maxlength="12" placeholder="Введите пароль" required>
               <span id="error-password-reg" class="popup__input-required"></span>
               
               <label class="popup__label">Имя</label>
-              <input type="text" name="text" id="text-reg" class="popup__input" minlength="2" maxlength="12" placeholder="Введите свое имя" required>
+              <input type="text" name="text" id="text-reg" class="popup__input" minlength="2" maxlength="30" placeholder="Введите свое имя" required>
               <span id="error-text-reg" class="popup__input-required"></span>
               
               <button type="submit" id="regSubmit" name="regSubmit" class="button popup__button">Зарегистрироваться</button>
@@ -54,7 +52,7 @@
           </form>
       </div>
     </div>
-<!--Добавить попапу класс "popup_is-opened" для отображения-->
+
     <div class="popup" id="successPopup">
       <div class="popup__content">
           <img src="<%=require('../../images/close.svg').default%>" alt="close_button" class="popup__close" id="successClose">
@@ -69,9 +67,9 @@
       <a href="./index.html" class="header__logo header__logo_white">NewsExplorer</a>
       <ul class="header__links">
         <li class="header__list-element"><a href="./index.html" class="header__link header__link_white header__link_active header__link_active_white">Главная</a></li>
-        <li class="header__list-element"><input type="button" class="auth-button auth-button_white" id="authOpen" value="Авторизоваться"></li>
-        <li class="header__list-element"><a href="./articles.html" class="header__link header__link_white header__link_enabled">Сохранённые статьи</a></li>
-        <!--<li class="header__list-element"><button class="auth-button auth-button_white auth-button_logged-in_white">Грета</button></li>-->
+        <li class="header__list-element"><button class="auth-button auth-button_white" id="authOpen">Авторизоваться</button></li>
+        <li class="header__list-element"><a href="./articles.html" class="header__link header__link_white header__link_enabled" id="linkToArticles">Сохранённые статьи</a></li>
+        <li class="header__list-element"><button class="auth-button auth-button_white auth-button_logged-in_white" id="userName">Грета</button></li>
       </ul>   
     </header>
 

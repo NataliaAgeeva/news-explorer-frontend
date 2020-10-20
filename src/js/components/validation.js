@@ -18,7 +18,7 @@ export default class FormValidator {
   checkInputValidity(inputElement) {
     const MIN_LENGTH_NAME = 2;
     const MAX_LENGTH_NAME = 30;
-    const MIN_LENGTH_PASSWORD = 6;
+    const MIN_LENGTH_PASSWORD = 8;
     const MAX_LENGTH_PASSWORD = 12;
     const NO_SYMBOLS = '';
 
@@ -42,7 +42,7 @@ export default class FormValidator {
     if (inputElement.name === 'password') {
       if (inputElement.value.length < MIN_LENGTH_PASSWORD
         || inputElement.value.length > MAX_LENGTH_PASSWORD) {
-        errorElement.textContent = 'От 6 до 12 символов';
+        errorElement.textContent = 'От 8 до 12 символов';
         this.activateError(errorElement);
         return false;
       }

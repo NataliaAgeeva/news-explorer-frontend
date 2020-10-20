@@ -8,7 +8,7 @@
 @import url(./__input/popup__input.css);
 @import url(./__label/popup__label.css);
 @import url(./__register-container/popup__register-container.css);
-@import url(./__register/popup__registed.css);
+@import url(./__register/popup__register.css);
 
 .popup {
   position: fixed;
