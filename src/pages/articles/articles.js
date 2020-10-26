@@ -3,6 +3,7 @@ import MainApi from '../../js/api/mainApi';
 import Header from '../../js/components/header';
 import Cardlist from '../../js/components/cardlist';
 import Card from '../../js/components/card';
+import keywordsCounter from '../../js/utils/keywordsCounter';
 import {
   authButtonOpen, linkToArticles,
   logOutMain, headerElement, page,
@@ -24,6 +25,10 @@ const createCard = (data) => {
 };
 
 const token = localStorage.getItem('token');
+
+if (!token) {
+  window.location.replace('index.html');
+}
 
 header.renderHeader(token);
 
@@ -47,3 +52,5 @@ logOutMain.addEventListener('click', () => {
   header.logOutRender();
   window.location.replace('index.html');
 });
+
+keywordsCounter(api);

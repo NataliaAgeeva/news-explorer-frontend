@@ -58,7 +58,19 @@ export default class Card {
     }
   }
 
+  _deleteSavedArticle() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.api.deleteArticle(this._id)
+        .then(() => {
+          this.element.remove();
+        })
+        .catch((err) => Promise.reject(new Error(err.message)));
+    }
+  }
+
   createSavedCard(data) {
+    this._id = data._id;
     this.element.classList.add('card');
     this.element.insertAdjacentHTML('beforeend', `
                              <span class="card__keyword">`
@@ -86,7 +98,7 @@ export default class Card {
                                + `</span>
                              </div>
                              </a>`);
-    // this._setEventListeners();
+    this._setEventListeners();
     this.element.style.visibility = 'visible';
     return this.element;
   }
@@ -135,15 +147,22 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this.element.querySelector('.card__save-flag').addEventListener('click', (event) => {
-      if (event.target.classList.contains('card__save-flag_marked')) {
-        this._delete();
-      } else {
-        this.save();
-      }
-    });
-    this.element.querySelector('.card__save-flag').addEventListener('mouseover', (event) => {
-      this._setHoverState(event);
-    });
+    if (window.location.href.includes('index')) {
+      this.element.querySelector('.card__save-flag').addEventListener('click', (event) => {
+        if (event.target.classList.contains('card__save-flag_marked')) {
+          this._delete();
+        } else {
+          this.save();
+        }
+      });
+      this.element.querySelector('.card__save-flag').addEventListener('mouseover', (event) => {
+        this._setHoverState(event);
+      });
+    }
+    if (window.location.href.includes('articles')) {
+      this.element.querySelector('.card__delete-card').addEventListener('click', () => {
+        this._deleteSavedArticle();
+      });
+    }
   }
 }
