@@ -3,6 +3,7 @@ export default class MainApi {
     this.url = url;
     this.token = localStorage.getItem('token');
     this.signUp = this.signUp.bind(this);
+    this.apiKey = '539da84807fe48c19eabd7665a65b8d1';
   }
 
   signUp(form) {
@@ -18,7 +19,7 @@ export default class MainApi {
         name: form.elements.text.value,
       }),
     })
-      .then((res) => res.json())
+      .then((res) => res)
       .catch((err) => Promise.reject(new Error(err.message)));
   }
 
@@ -43,6 +44,46 @@ export default class MainApi {
       method: 'GET',
       credentials: 'include',
       headers: {
+        authorization: `Bearer ${this.token}`,
+      },
+    })
+      .then((res) => res.json())
+      .catch((err) => Promise.reject(new Error(err.message)));
+  }
+
+  saveArticle(data) {
+    return fetch(`${this.url}/articles`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${this.token}`,
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .catch((err) => Promise.reject(new Error(err.message)));
+  }
+
+  deleteArticle(id) {
+    return fetch(`${this.url}/articles/${id}`, {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${this.token}`,
+      },
+    })
+      .then((res) => res.json())
+      .catch((err) => Promise.reject(new Error(err.message)));
+  }
+
+  getArticles() {
+    return fetch(`${this.url}/articles`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
         authorization: `Bearer ${this.token}`,
       },
     })

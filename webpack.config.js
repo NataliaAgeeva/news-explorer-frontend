@@ -42,6 +42,7 @@ module.exports = {
         {
           loader: 'image-webpack-loader',
           options: {
+            publicPath: '../',
             esModule: false,
           },
         },

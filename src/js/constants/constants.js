@@ -1,84 +1,40 @@
-import Popup from '../components/popup';
-import FormValidator from '../components/validation';
-import Form from '../components/form';
-import Header from '../components/header';
-import MainApi from '../api/mainApi';
+import '../../images/unnamed.gif';
 
-const url = 'http://localhost:3000';
 //  signIn elements
-const authButtonOpen = document.querySelector('#authOpen');
-const authPopupClose = document.querySelector('#authClose');
-const authFormElement = document.querySelector('#authForm');
-const authSubmit = document.querySelector('#authSubmit');
-const errorsAuth = {
-  email: authFormElement.querySelector('#error-email'),
-  password: authFormElement.querySelector('#error-password'),
+export const authButtonOpen = document.querySelector('#authOpen');
+export const authFormElement = document.querySelector('#authForm');
+export const authSubmit = document.querySelector('#authSubmit');
+export const errorsAuth = {
+  email: document.querySelector('#error-email'),
+  password: document.querySelector('#error-password'),
 };
 
 // signUp elements
-const regButtonOpen = document.querySelector('#regOpen');
-const regPopupClose = document.querySelector('#regClose');
-const regFormElement = document.querySelector('#regForm');
-const regSubmit = document.querySelector('#regSubmit');
-const errorsReg = {
-  email: regFormElement.querySelector('#error-email-reg'),
-  password: regFormElement.querySelector('#error-password-reg'),
-  name: regFormElement.querySelector('#error-text-reg'),
+export const regButtonOpen = document.querySelector('#regOpen');
+export const regFormElement = document.querySelector('#regForm');
+export const regSubmit = document.querySelector('#regSubmit');
+export const errorsReg = {
+  email: document.querySelector('#error-email-reg'),
+  password: document.querySelector('#error-password-reg'),
+  name: document.querySelector('#error-text-reg'),
+  regError: document.querySelector('#error-signUp'),
 };
-const authRegOpen = regFormElement.querySelector('#authRegOpen');
+export const authRegOpen = document.querySelector('#authRegOpen');
+
+export const page = window.location.href;
 
 // success form elements
-const successFormElement = document.querySelector('#successForm');
-const authSuccessOpen = document.querySelector('#authSuccessOpen');
-const successPopupClose = document.querySelector('#successClose');
+export const successFormElement = document.querySelector('#successForm');
+export const authSuccessOpen = document.querySelector('#authSuccessOpen');
 
-const page = window.location.href;
-// classes
-
-// Popups
-const authPopup = new Popup(document.querySelector('#authPopup'));
-const regPopup = new Popup(document.querySelector('#registerPopup'));
-const successPopup = new Popup(document.querySelector('#successPopup'));
-
-// Validators
-const authValidator = new FormValidator(authFormElement, authSubmit);
-const regValidator = new FormValidator(regFormElement, regSubmit);
-
-// Forms
-const authForm = new Form(errorsAuth, authFormElement, authSubmit);
-const regForm = new Form(errorsReg, regFormElement, regSubmit);
-
-// API
-const api = new MainApi(url);
+// Search Form
+export const search = document.querySelector('#search');
 
 // Header
-const linkToArticles = document.querySelector('#linkToArticles');
-const logOutMain = document.querySelector('#userName');
-const header = new Header({ authButtonOpen, linkToArticles, logOutMain }, api);
+export const headerElement = document.querySelector('.header');
+export const linkToArticles = document.querySelector('#linkToArticles');
+export const logOutMain = document.querySelector('#userName');
 
-export {
-  authButtonOpen,
-  authPopupClose,
-  authFormElement,
-  authSubmit,
-  errorsAuth,
-  regButtonOpen,
-  regPopupClose,
-  regFormElement,
-  regSubmit,
-  errorsReg,
-  authRegOpen,
-  authPopup,
-  regPopup,
-  authValidator,
-  regValidator,
-  authForm,
-  regForm,
-  successFormElement,
-  authSuccessOpen,
-  successPopup,
-  successPopupClose,
-  header,
-  api,
-  page,
-};
+export const articlesContainer = document.querySelector('.results__array');
+export const userName = document.querySelector('#headerUserName');
+export const atriclesCounter = document.querySelector('#articlesCounter');

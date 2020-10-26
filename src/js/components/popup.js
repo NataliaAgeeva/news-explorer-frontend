@@ -1,6 +1,8 @@
+/* eslint-disable no-underscore-dangle */
 export default class Popup {
   constructor(container) {
     this.container = container;
+    this._setEventListeners();
   }
 
   open() {
@@ -15,5 +17,12 @@ export default class Popup {
     if (event.key === 'Escape' || event.target.classList.contains('popup_is-opened')) {
       this.close();
     }
+  }
+
+  _setEventListeners() {
+    const closeButton = this.container.querySelector('.popup__close');
+    closeButton.addEventListener('click', this.close.bind(this));
+    document.addEventListener('click', this.closeOnEscapeOrCover.bind(this));
+    document.addEventListener('keydown', this.closeOnEscapeOrCover.bind(this));
   }
 }

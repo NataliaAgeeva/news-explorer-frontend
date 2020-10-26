@@ -1,8 +1,10 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable class-methods-use-this */
 export default class FormValidator {
   constructor(form, submit) {
     this.form = form;
     this.submit = submit;
+    this._setEventListeners();
   }
 
   activateError(errorElement) {
@@ -13,6 +15,13 @@ export default class FormValidator {
     errorElement.classList.remove('popup__input-required_shown');
     /* eslint no-param-reassign: "error" */
     errorElement.textContent = '';
+  }
+
+  checkForm(inputElement) {
+    if (inputElement.validity.valid) {
+      return true;
+    }
+    return false;
   }
 
   checkInputValidity(inputElement) {
@@ -31,7 +40,7 @@ export default class FormValidator {
     }
 
     if (inputElement.name === 'text') {
-      if (inputElement.value.length < MIN_LENGTH_NAME 
+      if (inputElement.value.length < MIN_LENGTH_NAME
         || inputElement.value.length > MAX_LENGTH_NAME) {
         errorElement.textContent = 'От 2 до 30 символов';
         this.activateError(errorElement);
@@ -70,14 +79,14 @@ export default class FormValidator {
     }
   }
 
-  setEventListeners() {
+  _setEventListeners() {
     const inputs = Array.from(this.form.elements);
 
-    this.form.addEventListener('input', () => {
+    this.form.addEventListener('input', (e) => {
       let isValid = true;
-
+      this.checkInputValidity(e.target);
       inputs.forEach((inputElement) => {
-        if ((inputElement.type !== 'submit' && inputElement.type !== 'button') && !this.checkInputValidity(inputElement)) {
+        if ((inputElement.type !== 'submit' && inputElement.type !== 'button') && !this.checkForm(inputElement)) {
           isValid = false;
         }
       });

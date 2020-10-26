@@ -16,7 +16,13 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .auth-button.auth-button_logged-in_black::after {
+    .auth-button.auth-button_logged-in_white::after {
         transform: translateY(65%) translateX(-100%);
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .auth-button.auth-button_logged-in_white::after {
+        transform: translateY(100%) translateX(-100%);
     }
   }

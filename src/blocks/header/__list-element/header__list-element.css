@@ -16,3 +16,16 @@
         margin-right: 25px;
     }
 }
+
+@media screen and (max-width: 767px) {
+    .header__list-element {
+        display: block;
+        margin-left: 18px;
+    }
+    .header__list-element:first-child {
+        margin-top: 70px;
+    }
+    .header__list-element:nth-child(2) {
+        text-align: center;
+    }
+}

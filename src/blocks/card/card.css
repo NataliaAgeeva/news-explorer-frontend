@@ -10,6 +10,7 @@
 @import url('./__keyword/card__keyword.css');
 
 .card {
+    visibility: hidden;
     position: relative;
     height: 576px;
     background-color: #FFFFFF;

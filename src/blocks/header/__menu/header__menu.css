@@ -1,0 +1,28 @@
+@import url('./_open-black/header__menu_open-black.css');
+@import url('./_close-black/header__menu_close-black.css');
+@import url('./_open-white/header__menu_open-white.css');
+
+.header__menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 2px;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+}
+
+@media screen and (max-width: 2880px) {
+    .header__menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header__menu {
+        display: block;
+    }
+}

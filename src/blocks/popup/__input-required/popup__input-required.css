@@ -1,4 +1,5 @@
 @import url(./_shown/popup__input-required_shown.css);
+@import url(./_position/popup__input-required_position.css);
 
 .popup__input-required {
     font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;

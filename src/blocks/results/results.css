@@ -7,6 +7,7 @@
 @import url('./__hidden-header/results__hidden-header.css');
 
 .results {
+    display: none;
     padding-top: 46px;
     max-width: 1440px;
     text-align: left;

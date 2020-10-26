@@ -1,5 +1,6 @@
 .card__keyword {
     display: flex;
+    text-transform: uppercase;
     align-items: center;
     justify-content: center;
     position: absolute;

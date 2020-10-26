@@ -8,98 +8,26 @@
 </head>
 <body>
     <div class="root">
+      
       <header class="header header_black">
         <a href="./index.html" class="header__logo header__logo_black">NewsExplorer</a>
         <ul class="header__links">
           <li class="header__list-element"><a href="./index.html" class="header__link header__link_black">Главная</a></li>
-          <li class="header__list-element"><a href="./articles.html" class="header__link header__link_black header__link_active header__link_active_black header__link_enabled">Сохранённые статьи</a></li>
-          <li class="header__list-element"><button class="auth-button auth-button_black auth-button_logged-in_black">Грета</button></li>
+          <li class="header__list-element"><a href="./articles.html" class="header__link header__link_black header__link_active header__link_active_black header__link_enabled" id="linkToArticles">Сохранённые статьи</a></li>
+          <li class="header__list-element"><button class="auth-button auth-button_black auth-button_logged-in_black" id="userName">Грета</button></li>
         </ul>   
+        <button class="header__menu header__menu_open-white"></button>
       </header>
 
       <section class="results results_white">
         <h2 class="results__preheader">Сохраненные статьи</h2>
-        <h3 class="results__header">Грета, у вас <span>5</span> сохранённых статей</h3>
+        <h3 class="results__header"><span id="headerUserName">Грета</span>, у вас <span id="articlesCounter">5</span> сохранённых статей</h3>
         <p class="results__keywords">По ключевым словам: <span class="results__key-list">Природа, Тайга</span> и <span>2 другим</span></p>
       </section>
 
       <section class="results">
         <h3 class="results__hidden-header" hidden>Сохраненные статьи</h3>
         <article class="results__array">
-          <div class="card">
-            <span class="card__keyword">Природа</span>
-            <button class="card__delete-card"></button>
-            <a href="https://zen.yandex.ru/" class="card__link" target="_blank">
-            <img class="card__image" src="<%=require('../../images/image_06.png').default%>" alt="card_image">
-            <div class="card__text-data">
-              <span class="card__date">2 августа, 2019</span>
-              <h3 class="card__header">Национальное достояние &ndash; парки</h3>
-              <p class="card__paragraph">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-              <span class="card__source">ДЗЕН</span>
-            </div>
-            </a>
-          </div>
-  
-          <div class="card">
-            <span class="card__keyword">Природа</span>
-            <button class="card__delete-card"></button>
-            <a href="https://www.afisha.ru/" class="card__link" target="_blank">
-            <img class="card__image" src="<%=require('../../images/image_01.png').default%>" alt="card_image">
-            <div class="card__text-data">
-              <span class="card__date">2 августа, 2019</span>
-              <h3 class="card__header">Лесные огоньки: история одной фотографии</h3>
-              <p class="card__paragraph">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного 
-                из местных чудес природы.</p>
-              <span class="card__source">Афиша</span>
-            </div>
-            </a>
-          </div>
-  
-          <div class="card">
-            <span class="card__keyword">Тайга</span>
-            <button class="card__delete-card"></button>
-            <a href="https://zona.media/" class="card__link" target="_blank">
-            <img class="card__image" src="<%=require('../../images/image_05.png').default%>" alt="card_image">
-            <div class="card__text-data">
-              <span class="card__date">2 августа, 2019</span>
-              <h3 class="card__header">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-              <p class="card__paragraph">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. 
-                В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-              <span class="card__source">Медиазона</span>
-            </div>
-            </a>
-          </div>
-
-          <div class="card">
-            <span class="card__keyword">Парки</span>
-            <button class="card__delete-card"></button>
-            <a href="https://zen.yandex.ru/" class="card__link" target="_blank">
-            <img class="card__image" src="<%=require('../../images/image_06.png').default%>" alt="card_image">
-            <div class="card__text-data">
-              <span class="card__date">2 августа, 2019</span>
-              <h3 class="card__header">Национальное достояние &ndash; парки</h3>
-              <p class="card__paragraph">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-              <span class="card__source">ДЗЕН</span>
-            </div>
-            </a>
-          </div>
-  
-          <div class="card">
-            <span class="card__keyword">Фотография</span>
-            <button class="card__delete-card"></button>
-            <a href="https://www.afisha.ru/" class="card__link" target="_blank">
-            <img class="card__image" src="<%=require('../../images/image_01.png').default%>" alt="card_image">
-            <div class="card__text-data">
-              <span class="card__date">2 августа, 2019</span>
-              <h3 class="card__header">Лесные огоньки: история одной фотографии</h3>
-              <p class="card__paragraph">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного 
-                из местных чудес природы.</p>
-              <span class="card__source">Афиша</span>
-            </div>
-            </a>
-          </div>
   
         </article>
       </section>

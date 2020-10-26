@@ -20,3 +20,9 @@
         transform: translateY(65%) translateX(-100%);
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .auth-button.auth-button_logged-in_black::after {
+        transform: translateY(150%) translateX(-100%);
+    }
+  }
