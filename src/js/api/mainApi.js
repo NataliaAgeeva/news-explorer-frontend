@@ -9,7 +9,6 @@ export default class MainApi {
   signUp(form) {
     return fetch(`${this.url}/signup`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -19,7 +18,7 @@ export default class MainApi {
         name: form.elements.text.value,
       }),
     })
-      .then((res) => res)
+      .then((res) => res.json())
       .catch((err) => Promise.reject(new Error(err.message)));
   }
 
@@ -35,7 +34,7 @@ export default class MainApi {
         password: form.elements.password.value,
       }),
     })
-      .then((res) => res)
+      .then((res) => res.json())
       .catch((err) => Promise.reject(new Error(err.message)));
   }
 

@@ -11,7 +11,7 @@ import {
 } from '../../js/constants/constants';
 
 // API
-const url = 'http://localhost:3000';
+const url = 'https://api.explorenews.fun';
 const api = new MainApi(url);
 // Constants
 
