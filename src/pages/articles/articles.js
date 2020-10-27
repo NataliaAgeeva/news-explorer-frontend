@@ -6,12 +6,11 @@ import Card from '../../js/components/card';
 import keywordsCounter from '../../js/utils/keywordsCounter';
 import {
   authButtonOpen, linkToArticles,
-  logOutMain, headerElement, page,
+  logOutMain, headerElement, page, url,
   articlesContainer, userName, atriclesCounter,
 } from '../../js/constants/constants';
 
 // API
-const url = 'https://api.explorenews.fun';
 const api = new MainApi(url);
 // Constants
 
@@ -34,6 +33,9 @@ header.renderHeader(token);
 
 api.getArticles()
   .then((res) => {
+    if (res.data.length === 0) {
+      window.location.replace('index.html');
+    }
     articlesContainer.closest('.results').style.display = 'block';
     atriclesCounter.textContent = res.data.length;
     const cardList = new Cardlist(articlesContainer, createCard, res.data);

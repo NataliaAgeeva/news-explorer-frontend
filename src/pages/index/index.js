@@ -13,13 +13,12 @@ import Cardlist from '../../js/components/cardlist';
 import {
   authButtonOpen, linkToArticles, logOutMain,
   headerElement, page, regFormElement, errorsReg,
-  authFormElement, authSubmit, regSubmit,
+  authFormElement, authSubmit, regSubmit, url,
   authRegOpen, regButtonOpen, authSuccessOpen,
   errorsAuth, search, articlesContainer,
 } from '../../js/constants/constants';
 
 // API
-const url = 'https://api.explorenews.fun';
 const newsApi = new NewsApi();
 const api = new MainApi(url);
 const header = new Header({
@@ -57,16 +56,20 @@ search.addEventListener('submit', (event) => {
   resltsNotFound.style.display = 'none';
   articlesContainer.closest('.results').style.display = 'none';
   const keyword = input.value;
+
   if (keyword) {
     renderLoading(true);
+
     newsApi.searchArticles(keyword)
       .then((res) => {
         const cardList = new Cardlist(articlesContainer, createCard, res.articles, keyword);
         cardList.clearResultsContainer();
+
         if (res.articles.length) {
           articlesContainer.closest('.results').style.display = 'block';
           cardList.render();
         }
+
         if (!res.articles.length) {
           resltsNotFound.style.display = 'block';
         }

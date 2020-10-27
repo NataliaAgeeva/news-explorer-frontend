@@ -46,7 +46,8 @@ export default class Header {
     this.api.getUserData()
       .then((res) => {
         this.options.logOutMain.textContent = res.data.name;
-      });
+      })
+      .catch((err) => Promise.reject(new Error(err.message)));
   }
 
   logOutRender() {

@@ -38,3 +38,5 @@ export const logOutMain = document.querySelector('#userName');
 export const articlesContainer = document.querySelector('.results__array');
 export const userName = document.querySelector('#headerUserName');
 export const atriclesCounter = document.querySelector('#articlesCounter');
+
+export const url = 'https://api.explorenews.fun';
