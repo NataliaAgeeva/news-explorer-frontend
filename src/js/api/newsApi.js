@@ -10,7 +10,7 @@ export default class NewsApi {
       + `q=${data}&`
       + `from=${formatDate()}&`
       + `apiKey=${this.apiKey}&`
-      + 'pageSize=100';
+      + 'pageSize=25';
     return fetch(url, {
       method: 'GET',
     })

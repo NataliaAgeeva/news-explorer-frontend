@@ -134,10 +134,11 @@ export default class Card {
   }
 
   _setHoverState(event) {
-    if (localStorage.getItem('token')) {
+    const token = localStorage.getItem('token');
+    if (token) {
       event.target.classList.remove('card__save-flag_not-logged-in');
     }
-    if (!localStorage.getItem('token')) {
+    if (!token) {
       event.target.classList.add('card__save-flag_not-logged-in');
     }
   }
