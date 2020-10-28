@@ -14,7 +14,11 @@ export default class NewsApi {
     return fetch(url, {
       method: 'GET',
     })
-      .then((res) => res.json())
-      .catch((err) => Promise.reject(new Error(err.message)));
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(res);
+      });
   }
 }

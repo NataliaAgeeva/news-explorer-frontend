@@ -3,6 +3,7 @@
 
 .card__save-flag {
     position: absolute;
+    cursor: pointer;
     z-index: 1;
     width: 40px;
     height: 40px;
@@ -11,14 +12,9 @@
     background-color: #ffffff;
     top: 24px;
     right: 24px;
-    background-image: url('../../../images/bookmark-normal.png');
+    background-image: url('../../../images/bookmark-hover.png');
     background-position: center;
     background-repeat: no-repeat;
-}
-
-.card__save-flag:hover {
-    cursor: pointer;
-    background-image: url('../../../images/bookmark-hover.png');
 }
 
 @media screen and (max-width: 1023px) {

@@ -1,3 +1,7 @@
+.card__save-flag_not-logged-in:hover {
+    cursor: pointer;
+    background-image: url('../../../../images/bookmark-normal.png');
+}
 .card__save-flag_not-logged-in:hover::after {
     content: 'Войдите, чтобы сохранять статьи';
     display: block;

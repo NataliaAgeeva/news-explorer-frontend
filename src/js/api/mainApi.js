@@ -2,7 +2,6 @@ export default class MainApi {
   constructor(url) {
     this.url = url;
     this.token = localStorage.getItem('token');
-    this.signUp = this.signUp.bind(this);
     this.apiKey = '539da84807fe48c19eabd7665a65b8d1';
   }
 
@@ -18,14 +17,17 @@ export default class MainApi {
         name: form.elements.text.value,
       }),
     })
-      .then((res) => res.json())
-      .catch((err) => Promise.reject(new Error(err.message)));
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(res);
+      });
   }
 
   signIn(form) {
     return fetch(`${this.url}/signin`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -34,20 +36,28 @@ export default class MainApi {
         password: form.elements.password.value,
       }),
     })
-      .then((res) => res.json())
-      .catch((err) => Promise.reject(new Error(err.message)));
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(res);
+      });
   }
 
-  getUserData() {
+  getUserData(token) {
     return fetch(`${this.url}/users/me`, {
       method: 'GET',
       credentials: 'include',
       headers: {
-        authorization: `Bearer ${this.token}`,
+        authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => res.json())
-      .catch((err) => Promise.reject(new Error(err.message)));
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(res);
+      });
   }
 
   saveArticle(data) {
@@ -60,8 +70,12 @@ export default class MainApi {
       },
       body: JSON.stringify(data),
     })
-      .then((res) => res.json())
-      .catch((err) => Promise.reject(new Error(err.message)));
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(res);
+      });
   }
 
   deleteArticle(id) {
@@ -73,8 +87,12 @@ export default class MainApi {
         authorization: `Bearer ${this.token}`,
       },
     })
-      .then((res) => res.json())
-      .catch((err) => Promise.reject(new Error(err.message)));
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(res);
+      });
   }
 
   getArticles() {
@@ -86,7 +104,11 @@ export default class MainApi {
         authorization: `Bearer ${this.token}`,
       },
     })
-      .then((res) => res.json())
-      .catch((err) => Promise.reject(new Error(err.message)));
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(res);
+      });
   }
 }

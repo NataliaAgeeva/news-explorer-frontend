@@ -3,7 +3,6 @@ export default class Header {
   constructor(options, api) {
     this.options = options;
     this.api = api;
-    this.getUserName = this.getUserName.bind(this);
     this._setEventListeners();
   }
 
@@ -22,8 +21,8 @@ export default class Header {
     menu.classList.toggle('header__menu_close-black');
   }
 
-  renderHeader(token) {
-    if (token) {
+  renderHeader(boolean) {
+    if (boolean) {
       if (this.options.authButtonOpen) {
         this.options.authButtonOpen.style.display = 'none';
       }
@@ -32,7 +31,7 @@ export default class Header {
       this.getUserName();
     }
 
-    if (!token) {
+    if (!boolean) {
       if (this.options.authButtonOpen) {
         this.options.authButtonOpen.style.display = 'inline';
       }
@@ -43,11 +42,11 @@ export default class Header {
   }
 
   getUserName() {
-    this.api.getUserData()
+    this.api.getUserData(localStorage.getItem('token'))
       .then((res) => {
         this.options.logOutMain.textContent = res.data.name;
       })
-      .catch((err) => Promise.reject(new Error(err.message)));
+      .catch((err) => new Error({ message: err }));
   }
 
   logOutRender() {

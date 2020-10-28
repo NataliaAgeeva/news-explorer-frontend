@@ -1,52 +1,51 @@
 /* eslint-disable no-underscore-dangle */
 export default class CardList {
-  constructor(container, card, array, keyword) {
+  constructor(container) {
     this.container = container;
-    this.array = array;
-    this.card = card;
-    this.keyword = keyword;
+    this.array = [];
     this.addButton = document.querySelector('.results__button');
     this._setEventListeners();
   }
 
-  addCard(template) {
-    const cardtemp = this.card(template, this.keyword);
-    this.container.appendChild(cardtemp);
+  _addCard(template) {
+    this.container.appendChild(template);
   }
 
-  addSavedCard(template) {
-    const cardtemp = this.card(template);
-    this.container.appendChild(cardtemp);
-  }
-
-  renderAll() {
+  renderAll(array) {
+    this.array = array;
     for (let i = 0; i < this.array.length; i += 1) {
-      this.addSavedCard(this.array[i]);
+      this._addCard(this.array[i]);
     }
   }
 
-  render() {
-    const threeCards = this.array.splice(0, 3);
-    for (let i = 0; i < 3; i += 1) {
-      this.addCard(threeCards[i]);
-    }
+  render(array) {
+    this.array = array;
+    this._addThreeCards();
+  }
+
+  _addThreeCards() {
+    let threeCards = this.array.splice(0, 3);
+    threeCards.forEach((item) => {
+      this._addCard(item);
+    });
     if (this.array.length === 0) {
       this.addButton.style.display = 'none';
     } else {
       this.addButton.style.display = 'block';
     }
+    threeCards = [];
   }
 
   clearResultsContainer() {
     const cardsToRemove = this.container.querySelectorAll('.card');
     cardsToRemove.forEach((item) => {
-      this.container.removeChild(item);
+      item.remove();
     });
   }
 
   _setEventListeners() {
     if (this.addButton) {
-      this.addButton.addEventListener('click', this.render.bind(this));
+      this.addButton.addEventListener('click', this._addThreeCards.bind(this));
     }
   }
 }

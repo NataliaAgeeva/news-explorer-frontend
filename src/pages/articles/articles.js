@@ -5,13 +5,13 @@ import Cardlist from '../../js/components/cardlist';
 import Card from '../../js/components/card';
 import keywordsCounter from '../../js/utils/keywordsCounter';
 import {
-  authButtonOpen, linkToArticles,
-  logOutMain, headerElement, page, url,
+  authButtonOpen, linkToArticles, token,
+  logOutMain, headerElement, page, baseUrl,
   articlesContainer, userName, atriclesCounter,
 } from '../../js/constants/constants';
 
 // API
-const api = new MainApi(url);
+const api = new MainApi(baseUrl);
 // Constants
 
 const header = new Header({
@@ -23,27 +23,53 @@ const createCard = (data) => {
   return card.createSavedCard(data);
 };
 
-const token = localStorage.getItem('token');
-
 if (!token) {
   window.location.replace('index.html');
 }
+
+let cardsArray = [];
+const cardList = new Cardlist(articlesContainer);
 
 header.renderHeader(token);
 
 api.getArticles()
   .then((res) => {
     if (res.data.length === 0) {
-      window.location.replace('index.html');
+      articlesContainer.textContent = 'Вы не сохранили еще ни одной статьи';
     }
     articlesContainer.closest('.results').style.display = 'block';
     atriclesCounter.textContent = res.data.length;
-    const cardList = new Cardlist(articlesContainer, createCard, res.data);
-    cardList.renderAll();
-  })
-  .catch((err) => Promise.reject(new Error(err.message)));
 
-api.getUserData()
+    cardsArray = res.data.map((item) => {
+      const {
+        date,
+        image,
+        keyword,
+        link,
+        source,
+        text,
+        title,
+        _id,
+      } = item;
+      const newsCard = createCard({
+        date,
+        image,
+        keyword,
+        link,
+        source,
+        text,
+        title,
+        _id,
+      });
+
+      return newsCard;
+    });
+
+    cardList.renderAll(cardsArray);
+  })
+  .catch((err) => new Error(err.message));
+
+api.getUserData(token)
   .then((res) => {
     userName.textContent = res.data.name;
   })

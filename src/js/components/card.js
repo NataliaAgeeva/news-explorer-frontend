@@ -24,8 +24,7 @@ export default class Card {
     return convertDate;
   }
 
-  save() {
-    const token = localStorage.getItem('token');
+  _save() {
     const options = {
       keyword: this.element.querySelector('.card__keyword').textContent,
       title: this.element.querySelector('.card__header').textContent,
@@ -38,34 +37,32 @@ export default class Card {
 
     const { ...rest } = options;
 
-    if (token) {
+    if (localStorage.getItem('token')) {
       this.api.saveArticle({ ...rest })
         .then((res) => {
           this._id = res.data._id;
           return this._id;
         })
         .then(() => this.element.querySelector('.card__save-flag').classList.add('card__save-flag_marked'))
-        .catch((err) => Promise.reject(new Error(err.message)));
+        .catch((err) => new Error({ message: err }));
     }
   }
 
   _delete() {
-    const token = localStorage.getItem('token');
-    if (token) {
+    if (localStorage.getItem('token')) {
       this.api.deleteArticle(this._id)
         .then(() => this.element.querySelector('.card__save-flag').classList.remove('card__save-flag_marked'))
-        .catch((err) => Promise.reject(new Error(err.message)));
+        .catch((err) => new Error({ message: err }));
     }
   }
 
   _deleteSavedArticle() {
-    const token = localStorage.getItem('token');
-    if (token) {
+    if (localStorage.getItem('token')) {
       this.api.deleteArticle(this._id)
         .then(() => {
           this.element.remove();
         })
-        .catch((err) => Promise.reject(new Error(err.message)));
+        .catch((err) => new Error({ message: err }));
     }
   }
 
@@ -137,11 +134,10 @@ export default class Card {
   }
 
   _setHoverState(event) {
-    const token = localStorage.getItem('token');
-    if (token) {
+    if (localStorage.getItem('token')) {
       event.target.classList.remove('card__save-flag_not-logged-in');
     }
-    if (!token) {
+    if (!localStorage.getItem('token')) {
       event.target.classList.add('card__save-flag_not-logged-in');
     }
   }
@@ -152,7 +148,7 @@ export default class Card {
         if (event.target.classList.contains('card__save-flag_marked')) {
           this._delete();
         } else {
-          this.save();
+          this._save();
         }
       });
       this.element.querySelector('.card__save-flag').addEventListener('mouseover', (event) => {

@@ -4,27 +4,24 @@ import Header from '../../js/components/header';
 import Popup from '../../js/components/popup';
 import Form from '../../js/components/form';
 import FormValidator from '../../js/components/validation';
-import Card from '../../js/components/card';
-import NewsApi from '../../js/api/newsApi';
-import renderLoading from '../../js/utils/utils';
-import Cardlist from '../../js/components/cardlist';
+
+import '../../js/utils/search';
 
 // Constants
 import {
   authButtonOpen, linkToArticles, logOutMain,
   headerElement, page, regFormElement, errorsReg,
-  authFormElement, authSubmit, regSubmit, url,
+  authFormElement, authSubmit, regSubmit, baseUrl,
   authRegOpen, regButtonOpen, authSuccessOpen,
-  errorsAuth, search, articlesContainer,
+  errorsAuth,
 } from '../../js/constants/constants';
 
 // API
-const newsApi = new NewsApi();
-const api = new MainApi(url);
+
+const api = new MainApi(baseUrl);
 const header = new Header({
   authButtonOpen, linkToArticles, logOutMain, headerElement, page,
 }, api);
-const resltsNotFound = document.querySelector('.not-found');
 
 // Popups
 const authPopup = new Popup(document.querySelector('#authPopup'));
@@ -41,54 +38,12 @@ const regValidator = new FormValidator(regFormElement, regSubmit);
 const authForm = new Form(errorsAuth, authFormElement, authSubmit);
 const regForm = new Form(errorsReg, regFormElement, regSubmit);
 
-const token = localStorage.getItem('token');
-
-header.renderHeader(token);
-
-const createCard = (data, keyword) => {
-  const card = new Card(api);
-  return card.create(data, keyword);
-};
-
-search.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const input = search.querySelector('.search__bar');
-  resltsNotFound.style.display = 'none';
-  articlesContainer.closest('.results').style.display = 'none';
-  const keyword = input.value;
-
-  if (keyword) {
-    renderLoading(true);
-
-    newsApi.searchArticles(keyword)
-      .then((res) => {
-        const cardList = new Cardlist(articlesContainer, createCard, res.articles, keyword);
-        cardList.clearResultsContainer();
-
-        if (res.articles.length) {
-          articlesContainer.closest('.results').style.display = 'block';
-          cardList.render();
-        }
-
-        if (!res.articles.length) {
-          resltsNotFound.style.display = 'block';
-        }
-      })
-      .catch((err) => Promise.reject(new Error(err.message)))
-      .finally(() => {
-        renderLoading(false);
-        search.reset();
-      });
-    input.placeholder = 'Введите ключевое слово';
-  }
-  if (!keyword) {
-    input.placeholder = 'Нужно ввести ключевое слово';
-  }
-});
+header.renderHeader(localStorage.getItem('token'));
 
 logOutMain.addEventListener('click', () => {
   localStorage.removeItem('token');
   header.logOutRender();
+  window.location.href = 'index.html';
 });
 
 regFormElement.addEventListener('input', () => {
@@ -98,28 +53,47 @@ regFormElement.addEventListener('input', () => {
 regFormElement.addEventListener('submit', (event) => {
   event.preventDefault();
   api.signUp(regFormElement)
-    .then((res) => {
-      if (res.ok) {
-        successPopup.open();
-        regPopup.close();
-      }
-      if (res.status === 409) {
-        errorsReg.regError.textContent = 'Такой пользователь уже есть';
-        errorsReg.regError.classList.add('popup__input-required_shown');
-      }
+    .then(() => {
+      regPopup.close();
+      successPopup.open();
+      regFormElement.reset();
     })
-    .catch((err) => Promise.reject(new Error(err.message)));
+    .catch((err) => {
+      if (err.status === 409) {
+        errorsReg.regError.textContent = 'Такой пользователь уже есть';
+        errorsReg.regError.style.display = 'inline';
+        return new Error({ message: err });
+      }
+      if (err.status === 400) {
+        errorsReg.regError.textContent = 'Что-то пошло не так :( Проверьте e-mail и пароль';
+        errorsReg.regError.style.display = 'inline';
+        return new Error({ message: err });
+      }
+      errorsReg.regError.textContent = 'Что-то пошло не так :(';
+      errorsReg.regError.style.display = 'inline';
+      return new Error({ message: err });
+    });
 });
 
 authFormElement.addEventListener('submit', (event) => {
   event.preventDefault();
   api.signIn(authFormElement)
-    .then(() => {
+    .then((res) => {
+      const { token } = res;
       localStorage.setItem('token', token);
+      header.renderHeader(true);
+      authPopup.close();
+      authFormElement.reset();
     })
-    .then(() => header.renderHeader('token'))
-    .then(() => authPopup.close())
-    .catch((err) => Promise.reject(new Error(err.message)));
+    .catch((err) => {
+      if (err.status === 400 || err.status === 401) {
+        errorsAuth.email.textContent = 'Неправильное имя пользователя или пароль';
+        errorsAuth.email.style.display = 'inline';
+        errorsAuth.password.textContent = 'Неправильное имя пользователя или пароль';
+        errorsAuth.password.style.display = 'inline';
+      }
+      return new Error({ message: err });
+    });
 });
 
 authButtonOpen.addEventListener('click', () => {
