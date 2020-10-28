@@ -60,13 +60,13 @@ export default class MainApi {
       });
   }
 
-  saveArticle(data) {
+  saveArticle(data, token) {
     return fetch(`${this.url}/articles`, {
       method: 'POST',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        authorization: `Bearer ${this.token}`,
+        authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     })

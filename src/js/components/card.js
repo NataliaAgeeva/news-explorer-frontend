@@ -34,11 +34,11 @@ export default class Card {
       link: this.element.querySelector('.card__link').getAttribute('href'),
       image: this.element.querySelector('.card__image').getAttribute('src'),
     };
-
+    const token = localStorage.getItem('token');
     const { ...rest } = options;
 
-    if (localStorage.getItem('token')) {
-      this.api.saveArticle({ ...rest })
+    if (token) {
+      this.api.saveArticle({ ...rest }, token)
         .then((res) => {
           this._id = res.data._id;
           return this._id;
