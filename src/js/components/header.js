@@ -8,7 +8,8 @@ export default class Header {
 
   renderMobileMenu() {
     const linksContainer = this.options.headerElement.querySelector('.header__links');
-    const links = linksContainer.querySelectorAll('header__link');
+    const links = this.options.headerElement.querySelectorAll('.header__link');
+    console.log(links);
     linksContainer.style.display = (linksContainer.style.display === 'block') ? 'none' : 'block';
     const menu = this.options.headerElement.querySelector('.header__menu');
 
@@ -20,12 +21,14 @@ export default class Header {
       menu.classList.toggle('header__menu_open-white');
       this.options.logo.classList.toggle('header__logo_black');
       this.options.logo.classList.toggle('header__logo_white');
-      links.forEach((item) => {
-        item.classlist.toggle('header__link_black');
-        item.classlist.toggle('header__link_white');
-      });
-      this.authButtonOpen.classList.toggle('auth-button_black');
-      this.authButtonOpen.classList.toggle('auth-button_white');
+      for (let i = 0; i < links.length; i += 1) {
+        links[i].classList.toggle('header__link_black');
+        links[i].classList.toggle('header__link_white');
+      }
+      this.options.logOutMain.classList.toggle('auth-button_black');
+      this.options.logOutMain.classList.toggle('auth-button_white');
+      this.options.logOutMain.classList.toggle('auth-button_logged-in_black');
+      this.options.logOutMain.classList.toggle('auth-button_logged-in_white');
     }
     menu.classList.toggle('header__menu_close-black');
   }

@@ -25,7 +25,4 @@
     .header__list-element:first-child {
         margin-top: 70px;
     }
-    .header__list-element:nth-child(2) {
-        text-align: center;
-    }
 }
