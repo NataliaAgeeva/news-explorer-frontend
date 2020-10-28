@@ -1,5 +1,3 @@
-import '../../images/unnamed.gif';
-
 //  signIn elements
 export const authButtonOpen = document.querySelector('#authOpen');
 export const authFormElement = document.querySelector('#authForm');
@@ -29,6 +27,9 @@ export const authSuccessOpen = document.querySelector('#authSuccessOpen');
 
 // Search Form
 export const search = document.querySelector('#search');
+
+// Header
+export const logo = document.querySelector('.header__logo');
 
 // Header
 export const headerElement = document.querySelector('.header');

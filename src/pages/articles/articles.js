@@ -5,7 +5,7 @@ import Cardlist from '../../js/components/cardlist';
 import Card from '../../js/components/card';
 import keywordsCounter from '../../js/utils/keywordsCounter';
 import {
-  authButtonOpen, linkToArticles, token,
+  authButtonOpen, linkToArticles, token, logo,
   logOutMain, headerElement, page, baseUrl,
   articlesContainer, userName, atriclesCounter,
 } from '../../js/constants/constants';
@@ -15,7 +15,7 @@ const api = new MainApi(baseUrl);
 // Constants
 
 const header = new Header({
-  authButtonOpen, linkToArticles, logOutMain, headerElement, page,
+  authButtonOpen, linkToArticles, logOutMain, headerElement, page, logo,
 }, api);
 
 const createCard = (data) => {

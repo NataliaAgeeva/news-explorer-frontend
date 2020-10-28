@@ -17,5 +17,5 @@ export default function keywordsCounter(api) {
         keyList.textContent = `${Object.keys(objectKeywords)[0]}, ${Object.keys(objectKeywords)[1]} и ${Object.keys(objectKeywords).length - 2} другим`;
       }
     })
-    .catch((err) => Promise.reject(new Error(err.message)));
+    .catch((err) => new Error({ message: err }));
 }

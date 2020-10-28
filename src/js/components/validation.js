@@ -7,24 +7,24 @@ export default class FormValidator {
     this._setEventListeners();
   }
 
-  activateError(errorElement) {
+  _activateError(errorElement) {
     errorElement.classList.add('popup__input-required_shown');
   }
 
-  resetError(errorElement) {
+  _resetError(errorElement) {
     errorElement.classList.remove('popup__input-required_shown');
     /* eslint no-param-reassign: "error" */
     errorElement.textContent = '';
   }
 
-  checkForm(inputElement) {
+  _checkForm(inputElement) {
     if (inputElement.validity.valid) {
       return true;
     }
     return false;
   }
 
-  checkInputValidity(inputElement) {
+  _checkInputValidity(inputElement) {
     const MIN_LENGTH_NAME = 2;
     const MAX_LENGTH_NAME = 30;
     const MIN_LENGTH_PASSWORD = 8;
@@ -35,7 +35,7 @@ export default class FormValidator {
 
     if (inputElement.value === NO_SYMBOLS) {
       errorElement.textContent = 'Поле обязательно для заполнения';
-      this.activateError(errorElement);
+      this._activateError(errorElement);
       return false;
     }
 
@@ -43,7 +43,7 @@ export default class FormValidator {
       if (inputElement.value.length < MIN_LENGTH_NAME
         || inputElement.value.length > MAX_LENGTH_NAME) {
         errorElement.textContent = 'От 2 до 30 символов';
-        this.activateError(errorElement);
+        this._activateError(errorElement);
         return false;
       }
     }
@@ -52,22 +52,22 @@ export default class FormValidator {
       if (inputElement.value.length < MIN_LENGTH_PASSWORD
         || inputElement.value.length > MAX_LENGTH_PASSWORD) {
         errorElement.textContent = 'От 8 до 12 символов';
-        this.activateError(errorElement);
+        this._activateError(errorElement);
         return false;
       }
     } else if (inputElement.name === 'email') {
       if (inputElement.validity.typeMismatch || inputElement.validity.patternMismatch) {
         errorElement.textContent = 'Неправильный формат email';
-        this.activateError(errorElement);
+        this._activateError(errorElement);
         return false;
       }
     }
 
-    this.resetError(errorElement);
+    this._resetError(errorElement);
     return true;
   }
 
-  setSubmitButtonState(boolean) {
+  _setSubmitButtonState(boolean) {
     if (!boolean) {
       this.submit.classList.remove('popup__button_enabled');
       this.submit.classList.add('popup__button_disabled');
@@ -84,13 +84,13 @@ export default class FormValidator {
 
     this.form.addEventListener('input', (e) => {
       let isValid = true;
-      this.checkInputValidity(e.target);
+      this._checkInputValidity(e.target);
       inputs.forEach((inputElement) => {
-        if ((inputElement.type !== 'submit' && inputElement.type !== 'button') && !this.checkForm(inputElement)) {
+        if ((inputElement.type !== 'submit' && inputElement.type !== 'button') && !this._checkForm(inputElement)) {
           isValid = false;
         }
       });
-      this.setSubmitButtonState(isValid);
+      this._setSubmitButtonState(isValid);
     });
   }
 }

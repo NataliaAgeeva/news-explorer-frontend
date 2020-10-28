@@ -7,8 +7,9 @@ export default class Header {
   }
 
   renderMobileMenu() {
-    const links = this.options.headerElement.querySelector('.header__links');
-    links.style.display = (links.style.display === 'block') ? 'none' : 'block';
+    const linksContainer = this.options.headerElement.querySelector('.header__links');
+    const links = linksContainer.querySelectorAll('header__link');
+    linksContainer.style.display = (linksContainer.style.display === 'block') ? 'none' : 'block';
     const menu = this.options.headerElement.querySelector('.header__menu');
 
     if (this.options.page.includes('index.html')) {
@@ -17,6 +18,14 @@ export default class Header {
 
     if (this.options.page.includes('articles.html')) {
       menu.classList.toggle('header__menu_open-white');
+      this.options.logo.classList.toggle('header__logo_black');
+      this.options.logo.classList.toggle('header__logo_white');
+      links.forEach((item) => {
+        item.classlist.toggle('header__link_black');
+        item.classlist.toggle('header__link_white');
+      });
+      this.authButtonOpen.classList.toggle('auth-button_black');
+      this.authButtonOpen.classList.toggle('auth-button_white');
     }
     menu.classList.toggle('header__menu_close-black');
   }

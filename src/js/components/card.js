@@ -11,7 +11,7 @@ export default class Card {
 
   _checkImage(url) {
     if (!url) {
-      return '../images/unnamed.gif';
+      return 'https://hobbykmv.ru/pics/1_159.gif';
     }
     return url;
   }
