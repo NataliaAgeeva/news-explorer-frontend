@@ -113,13 +113,12 @@ authRegOpen.addEventListener('click', () => {
 regButtonOpen.addEventListener('click', () => {
   authPopup.close(authPopup);
   regForm.clearForm();
-
   regPopup.open();
 });
 
 authSuccessOpen.addEventListener('click', () => {
   regForm.clearForm();
-
+  authForm.clearForm();
   successPopup.close(successPopup);
   authPopup.open();
 });
