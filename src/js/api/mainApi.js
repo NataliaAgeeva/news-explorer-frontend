@@ -78,13 +78,13 @@ export default class MainApi {
       });
   }
 
-  deleteArticle(id) {
+  deleteArticle(id, token) {
     return fetch(`${this.url}/articles/${id}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        authorization: `Bearer ${this.token}`,
+        authorization: `Bearer ${token}`,
       },
     })
       .then((res) => {

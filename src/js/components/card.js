@@ -49,16 +49,18 @@ export default class Card {
   }
 
   _delete() {
-    if (localStorage.getItem('token')) {
-      this.api.deleteArticle(this._id)
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.api.deleteArticle(this._id, token)
         .then(() => this.element.querySelector('.card__save-flag').classList.remove('card__save-flag_marked'))
         .catch((err) => new Error({ message: err }));
     }
   }
 
   _deleteSavedArticle() {
-    if (localStorage.getItem('token')) {
-      this.api.deleteArticle(this._id)
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.api.deleteArticle(this._id, token)
         .then(() => {
           this.element.remove();
         })
