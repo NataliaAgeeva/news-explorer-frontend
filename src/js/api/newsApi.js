@@ -9,8 +9,8 @@ export default class NewsApi {
     const url = 'https://nomoreparties.co/news/v2/everything?'
       + `q=${data}&`
       + `from=${formatDate()}&`
-      + `apiKey=${this.apiKey}&`
-      + 'pageSize=25';
+      + 'sortBy=popularity&'
+      + `apiKey=${this.apiKey}`;
     return fetch(url, {
       method: 'GET',
     })
