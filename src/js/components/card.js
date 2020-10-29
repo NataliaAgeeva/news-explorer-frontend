@@ -4,7 +4,6 @@ export default class Card {
   constructor(api) {
     this.element = document.createElement('div');
     this.api = api;
-    this._setEventListeners = this._setEventListeners.bind(this);
     // eslint-disable-next-line no-unused-expressions
     this._id;
   }
@@ -146,7 +145,7 @@ export default class Card {
   }
 
   _setEventListeners() {
-    if (window.location.href.includes('index')) {
+    if (!window.location.href.includes('articles')) {
       this.element.querySelector('.card__save-flag').addEventListener('click', (event) => {
         if (event.target.classList.contains('card__save-flag_marked')) {
           this._delete();
