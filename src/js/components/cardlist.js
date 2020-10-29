@@ -36,6 +36,10 @@ export default class CardList {
     threeCards = [];
   }
 
+  hideButton() {
+    this.addButton.style.display = 'none';
+  }
+
   clearResultsContainer() {
     const cardsToRemove = this.container.querySelectorAll('.card');
     cardsToRemove.forEach((item) => {

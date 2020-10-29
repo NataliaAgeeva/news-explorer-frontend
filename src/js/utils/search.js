@@ -31,6 +31,8 @@ search.addEventListener('submit', (event) => {
   if (keyword) {
     renderLoading(true);
 
+    articlesContainer.textContent = '';
+
     newsApi.searchArticles(keyword)
       .then((res) => {
         cardsArray = res.articles.map((item) => {
@@ -64,7 +66,14 @@ search.addEventListener('submit', (event) => {
           resltsNotFound.style.display = 'block';
         }
       })
-      .catch((err) => new Error({ message: err }))
+      .catch((err) => {
+        if (err.status === 500) {
+          articlesContainer.closest('.results').style.display = 'block';
+          articlesContainer.textContent = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
+          cardList.hideButton();
+        }
+        return new Error({ message: err });
+      })
       .finally(() => {
         renderLoading(false);
         search.reset();
