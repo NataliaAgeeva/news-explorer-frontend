@@ -1,3 +1,5 @@
+@import url('./_not-shown/card__keword_not-shown.css');
+
 .card__keyword {
     display: flex;
     text-transform: uppercase;

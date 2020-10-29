@@ -105,7 +105,7 @@ export default class Card {
   create(template, keyword) {
     this.element.classList.add('card');
     this.element.insertAdjacentHTML('beforeend', `
-                             <span class="card__keyword">`
+                             <span class="card__keyword card__keyword_not-shown">`
                              + `${keyword}`
                              + `</span>
                              <button class="card__save-flag card__save-flag_not-logged-in"></button>
