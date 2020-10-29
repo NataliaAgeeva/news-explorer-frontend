@@ -1,6 +1,6 @@
 # news-explorer-frontend  
   
-Диплом, часть 3: Верстка и инфраструктура  
+Диплом, часть 4: Javascript
 
 Ссылка:
 https://nataliaageeva.github.io/news-explorer-frontend/  
