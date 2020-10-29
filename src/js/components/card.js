@@ -122,7 +122,7 @@ export default class Card {
                                + `${template.title}`
                                + `</h3>
                                <p class="card__paragraph">`
-                               + `${template.description}`
+                               + `${template.description.replace(/(<([^>]+)>)/ig, '')}`
                                + `</p>
                                <span class="card__source">`
                                + `${template.source.name}`
