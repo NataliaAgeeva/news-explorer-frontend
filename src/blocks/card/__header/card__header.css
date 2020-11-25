@@ -1,0 +1,21 @@
+.card__header {
+    font-family: 'Roboto Slab',  'Georgia', serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 30px;
+    color: #1A1B22;
+    margin-top: 13px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1023px) {
+    .card__header {
+        font-size: 22px;
+        line-height: 24px;
+        overflow: hidden;
+    }
+  }

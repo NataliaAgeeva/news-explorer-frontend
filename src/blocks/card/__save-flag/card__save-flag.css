@@ -1,0 +1,35 @@
+@import url('./_marked/card__save-flag_marked.css');
+@import url('./_not-logged-in/card__save-flag_not-logged-in.css');
+
+.card__save-flag {
+    position: absolute;
+    cursor: pointer;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffffff;
+    top: 24px;
+    right: 24px;
+    background-image: url('../../../images/bookmark-hover.png');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 1023px) {
+    .card__save-flag {
+        top: 7px;
+        right: 7px;
+    }
+    .card__save-flag:hover::after {
+        display: none;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .card__save-flag {
+        top: 15px;
+        right: 15px;
+    }
+  }

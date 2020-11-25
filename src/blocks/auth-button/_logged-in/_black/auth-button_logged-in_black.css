@@ -1,0 +1,28 @@
+.auth-button.auth-button_logged-in_black {
+    padding-right: 45px;
+}
+
+.auth-button.auth-button_logged-in_black::after {
+    content: '';
+    display: block;
+    background-image: url('../../../../images/logout-black.png');
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(102%) translateX(-104%);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1023px) {
+    .auth-button.auth-button_logged-in_black::after {
+        transform: translateY(65%) translateX(-100%);
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .auth-button.auth-button_logged-in_black::after {
+        transform: translateY(150%) translateX(-100%);
+    }
+  }

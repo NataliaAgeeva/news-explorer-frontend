@@ -1,0 +1,35 @@
+@import url('./_not-shown/card__keword_not-shown.css');
+
+.card__keyword {
+    display: flex;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border-color: #ffffff;
+}
+
+@media screen and (max-width: 1023px) {
+    .card__keyword {
+        top: 7px;
+        left: 7px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .card__keyword {
+        top: 15px;
+        left: 15px;
+    }
+  }

@@ -1,0 +1,28 @@
+.header__list-element {
+    position: relative;
+    display: inline;
+    margin-right: 31px;
+}
+
+.header__list-element:last-child {
+    margin-right: 104px;
+}
+
+@media screen and (max-width: 1023px) {
+    .header__list-element {
+        margin-right: 15px;
+    }
+    .header__list-element:last-child {
+        margin-right: 25px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header__list-element {
+        display: block;
+        margin-left: 18px;
+    }
+    .header__list-element:first-child {
+        margin-top: 70px;
+    }
+}

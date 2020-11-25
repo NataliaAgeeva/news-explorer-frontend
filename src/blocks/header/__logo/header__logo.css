@@ -1,0 +1,29 @@
+@import url('./_white/header__logo_white.css');
+@import url('./_black/header__logo_black.css');
+
+.header__logo {
+    margin-top: 5px;
+    margin-left: 106px;
+    font-family: 'Roboto Slab', 'Georgia', serif;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1023px) {
+    .header__logo {
+        font-size: 20px;
+        line-height: 24px;
+        margin-left: 42px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header__logo {
+        font-size: 16px;
+        line-height: 24px;
+        margin-left: 16px;
+        z-index: 10;
+    }
+}

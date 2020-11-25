@@ -1,0 +1,18 @@
+@import url('./__header/about__header.css');
+@import url('./__avatar/about__avatar.css');
+@import url('./__text/about__text.css');
+@import url('./__paragraph/about__paragraph.css');
+
+.about {
+    background-color: #ffffff;
+    display: flex;
+    margin-bottom: 26px;
+}
+
+@media screen and (max-width: 767px) {
+    .about {
+      flex-direction: column;
+      margin-bottom: 65px;
+      align-items: center;
+    }
+  }

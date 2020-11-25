@@ -1,0 +1,25 @@
+.about__header {
+    font-family: 'Roboto Slab', 'Georgia', serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    color: #1A1B22;
+    margin-top: 133px;
+}
+
+@media screen and (max-width: 1023px) {
+    .about__header {
+        font-size: 30px;
+        line-height: 40px;
+        margin-top: 45px;
+    }
+  }
+
+  
+
+  @media screen and (max-width: 767px) {
+    .about__header {
+        margin-top: 25px;
+    }
+  }

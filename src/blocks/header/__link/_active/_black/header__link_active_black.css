@@ -1,0 +1,9 @@
+.header__link_active_black {
+    border-bottom: 3px solid #1A1B22;
+}
+
+@media screen and (max-width: 767px) {
+    .header__link.header__link_active.header__link_active_black {
+        border: none;
+    }
+}

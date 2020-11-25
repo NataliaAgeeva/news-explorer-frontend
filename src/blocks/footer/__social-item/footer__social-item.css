@@ -1,0 +1,14 @@
+.footer__social-item {
+    display: inline;
+    margin-right: 24px;
+}
+
+.footer__social-item:last-child {
+    margin-right: 0;
+}
+
+@media screen and (max-width: 1023px) {
+    .footer__social-item {
+        margin-right: 22px;
+    }
+  }

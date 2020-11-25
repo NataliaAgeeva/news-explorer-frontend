@@ -1,0 +1,16 @@
+.footer__social {
+    list-style: none;
+}
+
+@media screen and (max-width: 1023px) {
+    .footer__social {
+        margin-left: 10px;
+        padding-left: 0;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .footer__social {
+        padding-right: 0;
+    }
+  }
